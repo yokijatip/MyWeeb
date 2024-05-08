@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".home.HomeFragment">
 
-<!--    Top Text-->
+    <!--    Top Text-->
     <LinearLayout
         android:id="@+id/topbar"
         android:layout_width="0dp"
@@ -25,7 +25,6 @@
             android:text="Home"
             android:textColor="@color/black"
             android:textSize="24sp" />
-
 
         <ImageView
             android:id="@+id/search"
@@ -74,25 +73,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            
+
             <ImageView
                 android:layout_width="42dp"
                 android:layout_height="42dp"
                 android:layout_gravity="center"
-                android:src="@drawable/iv_anime"
-                />
+                android:src="@drawable/iv_anime" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Anime"
-                android:layout_marginTop="8dp"
-                android:textSize="12sp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/inter_medium"
                 android:layout_gravity="center"
-                />
-            
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="Anime"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
         </LinearLayout>
 
         <!--    Manga   -->
@@ -100,26 +97,24 @@
             android:id="@+id/categories_manga"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="30dp"
             android:orientation="vertical">
 
             <ImageView
                 android:layout_width="42dp"
                 android:layout_height="42dp"
                 android:layout_gravity="center"
-                android:src="@drawable/iv_manga"
-                />
+                android:src="@drawable/iv_manga" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Manga"
-                android:layout_marginTop="8dp"
-                android:textSize="12sp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/inter_medium"
                 android:layout_gravity="center"
-                />
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="Manga"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -128,31 +123,42 @@
             android:id="@+id/categories_character"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="30dp"
             android:orientation="vertical">
 
             <ImageView
                 android:layout_width="42dp"
                 android:layout_height="42dp"
                 android:layout_gravity="center"
-                android:src="@drawable/iv_character"
-                />
+                android:src="@drawable/iv_character" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Character"
-                android:layout_marginTop="8dp"
-                android:textSize="12sp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/inter_medium"
                 android:layout_gravity="center"
-                />
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="Character"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
 
         </LinearLayout>
 
     </LinearLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="16dp"
+        android:padding="10dp"
+        android:id="@+id/rv_top_anime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/categories"
+        tools:itemCount="1"
+        android:clipToPadding="false"
+        tools:listitem="@layout/item_anime_top" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_start"

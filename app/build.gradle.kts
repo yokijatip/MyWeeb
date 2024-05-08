@@ -65,6 +65,8 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
     //noinspection GradleDependency,UseTomlInstead
     implementation("com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion")
+    //noinspection UseTomlInstead
+    implementation("com.squareup.okio:okio:3.2.0")
 
     val recyclerViewVersion = "1.3.2"
     //noinspection UseTomlInstead
@@ -126,7 +128,9 @@ dependencies {
     testImplementation("androidx.arch.core:core-testing:$arch_version")
 
     // optional - Test helpers for Lifecycle runtime
-    testImplementation ("androidx.lifecycle:lifecycle-runtime-testing:$lifecycle_version")
+    testImplementation("androidx.lifecycle:lifecycle-runtime-testing:$lifecycle_version")
+
+
 
 
 
