@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import eastbound.yokijatiperkasa.myweeb.R
 import eastbound.yokijatiperkasa.myweeb.core.data.source.remote.respone.AnimeItem
+import eastbound.yokijatiperkasa.myweeb.core.data.source.remote.respone.ImageData
 import eastbound.yokijatiperkasa.myweeb.databinding.ItemAnimeTopBinding
 
 class TopAnimeAdapter :
@@ -19,12 +19,17 @@ class TopAnimeAdapter :
         fun bind(anime: AnimeItem) {
 
             binding.apply {
-                Glide.with(itemView)
-                    .load(R.drawable.anime)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .centerCrop()
-                    .into(ivCover)
 
+                val imageData: ImageData? = anime.images.webp
+
+                if (imageData != null) {
+                    val imageUrl = imageData.imageUrl
+                    Glide.with(itemView)
+                        .load(imageUrl)
+                        .transition(DrawableTransitionOptions.withCrossFade())
+                        .centerCrop()
+                        .into(ivCover)
+                }
                 tvTitle.text = anime.title
             }
         }
