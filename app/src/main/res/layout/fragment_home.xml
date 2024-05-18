@@ -146,18 +146,30 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/tv_top_anime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/inter_semibold"
+        android:text="Top Anime"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/categories"
+        app:layout_constraintTop_toBottomOf="@+id/categories" />
+
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="16dp"
-        android:padding="10dp"
         android:id="@+id/rv_top_anime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clipToPadding="false"
         android:orientation="horizontal"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categories"
+        app:layout_constraintTop_toBottomOf="@+id/tv_top_anime"
         tools:itemCount="1"
-        android:clipToPadding="false"
         tools:listitem="@layout/item_anime_top" />
 
     <androidx.constraintlayout.widget.Guideline

@@ -4,10 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Space
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import eastbound.yokijatiperkasa.myweeb.R
 import eastbound.yokijatiperkasa.myweeb.core.data.AnimeRepository
@@ -40,16 +39,12 @@ class HomeFragment : Fragment() {
         setupRecyclerView()
         setupViewModel()
         fetchTopAnime()
-
     }
 
     private fun setupViewModel() {
         val animeRepository = AnimeRepository(ApiConfig.getApiService())
         viewModelFactory = ViewModelFactory(animeRepository)
-        viewModel = ViewModelProvider(this, viewModelFactory)[HomeViewModel::class.java]
-        viewModel.topAnime.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
-        }
+        viewModel = ViewModelProvider(requireActivity(), viewModelFactory)[HomeViewModel::class.java]
     }
 
     private fun setupRecyclerView() {
@@ -58,7 +53,8 @@ class HomeFragment : Fragment() {
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.rvTopAnime.adapter = adapter
 
-        val horizontalSpaceItemDecoration = resources.getDimensionPixelSize(R.dimen.horizontal_space_width)
+        val horizontalSpaceItemDecoration =
+            resources.getDimensionPixelSize(R.dimen.horizontal_space_width)
         val itemDecoration = HorizontalSpaceItemDecoration(horizontalSpaceItemDecoration)
         binding.rvTopAnime.addItemDecoration(itemDecoration)
 
@@ -70,7 +66,9 @@ class HomeFragment : Fragment() {
     }
 
     private fun fetchTopAnime() {
-        viewModel.fetchTopAnime()
+        viewModel.topAnime.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
     }
 
 

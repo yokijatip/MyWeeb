@@ -130,10 +130,8 @@ dependencies {
     // optional - Test helpers for Lifecycle runtime
     testImplementation("androidx.lifecycle:lifecycle-runtime-testing:$lifecycle_version")
 
-
-
-
-
+    // Shimmer Effect buat loading content
+    implementation("com.facebook.shimmer:shimmer:0.5.0")
 
 
     implementation(libs.androidx.core.ktx)

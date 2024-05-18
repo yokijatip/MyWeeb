@@ -14,9 +14,15 @@ class HomeViewModel(private var animeRepository: IAnimeRepository) : ViewModel()
     private val _topAnime = MutableLiveData<List<AnimeItem>>()
     val topAnime: LiveData<List<AnimeItem>> get() = _topAnime
 
-    fun fetchTopAnime() {
+    init {
+        fetchTopAnime()
+    }
+
+    private fun fetchTopAnime() {
         viewModelScope.launch {
-            _topAnime.value = animeRepository.getTopAnime()
+            if (_topAnime.value.isNullOrEmpty()) {
+                _topAnime.value = animeRepository.getTopAnime()
+            }
         }
     }
 
