@@ -24,7 +24,8 @@ data class AnimeItem(
 
 data class Images(
     @SerializedName("webp")
-    val webp: ImageData
+    val webp: ImageData,
+    val jpg: ImageData
 )
 
 data class ImageData(
